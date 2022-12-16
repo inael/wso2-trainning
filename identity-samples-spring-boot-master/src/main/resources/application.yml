@@ -1,0 +1,52 @@
+spring:
+  thymeleaf: # Thymeleaf
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    prefix: file:src/main/resources/templates/
+  resources: # Static resources
+    static-locations: file:src/main/resources/static/
+    cache:
+      period: 0
+  security:
+    oauth2:
+      client:
+        registration:
+          wso2:
+            scope: openid
+            authorization-grant-type: authorization_code
+            client-name: WSO2 Identity Server
+            client-id: hBkFcKhxwQRbtHq3XrTMotgpygka
+            client-secret: RhHVKTEzhEkYiMpE826iYHJlhQMa
+            redirect-uri: '{baseUrl}/login/oauth2/code/wso2'
+        provider:
+          wso2:
+            jwk-set-uri: https://localhost:9443/oauth2/jwks
+            authorization-uri: https://localhost:9443/oauth2/authorize
+            token-uri: https://localhost:9443/oauth2/token
+            user-info-uri: https://localhost:9443/oauth2/userinfo
+client:
+  post-logout-uri: http://localhost:8080/spring-boot-sample/login
+healt-first-api:
+  host: https://localhost:8246/backend/1.0.0/
+
+security:
+  oauth2:
+    host: https://localhost:9446/oauth2/token
+    client:
+      patient:  #ok
+        id: Yiurs1AwxVFYkPafeYw0i7iOkvca
+        user: rushmin
+        password: password
+        secret: r7IDFYBZyNi9gh4fRB0iLf8fBfca
+      doctor: #ok ultron
+        id: zuNgnlrTYgsOKGpURPxdUK1UvUga
+        user: ultron
+        password: password
+        secret: YpXdQyfsJKNDKMQ4CTPBN5UEoNUa
+      admin: #ok
+        id: fXyxaNfTpH_szmPyC6xjiMQ1eVIa
+        user: admin
+        password: admin
+        secret: ByzCtNMe9qopRryxk2YJVtZVW14a
+

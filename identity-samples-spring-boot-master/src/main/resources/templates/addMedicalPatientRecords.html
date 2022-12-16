@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="referrer" content="no-referrer"/>
+    <title>WSO2 Identity Server - Spring Boot Sample </title>
+    <link href="css/app.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div id="logged-in-view">
+    <div class="header-title">
+        <h1>Logged in as <span style="font-weight:bold" th:text="${userName}"></span></h1>
+    </div>
+    <div class="container">
+        <div class="content">
+            <h3>Add medical record</h3>
+
+            <form method="post" th:action="@{/add-patient-medical-records}" th:object="${patient}">
+
+                <h2>Patient</h2>
+                <input placeholder="Patient Name" disabled  th:field="*{name}"  type="text"/>
+                <input  placeholder="Patient Email" disabled  th:field="*{email}" type="text"/>
+                <input name="email" type="text" hidden th:value="${patient.email}"/>
+                <h2>Medical Record</h2>
+                <input name="patientId" type="text" hidden th:value="${patient.id}"/>
+                <input name="medicineCode" placeholder="Enter medicineCode" required th:value="${medicineCode}"
+                       type="text"/>
+                <input name="amount" placeholder="Enter amount" required th:value="${amount}" type="number"/>
+                <input name="date" placeholder="Enter date" required th:value="${date}" type="text"/>
+                <input name="doctorId" placeholder="Enter doctorId" required th:value="${doctorId}" type="text"/>
+
+                <input type="submit" value="Create Medical Record"/>
+                <input type="reset" value="Reset"/>
+            </form>
+
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="content">
+
+            <div>
+                <div style="float:left">
+                    <form th:action="@{/}" method="get">
+                        <button class="btn primary" type="submit">Index</button>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <div style="float:right">
+                    <form method="post" th:action="@{/logout}">
+                        <button class="btn primary" type="submit">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img src="images/footer.png" class="footer-image"/>
+</div>
+</body>
+</html>
