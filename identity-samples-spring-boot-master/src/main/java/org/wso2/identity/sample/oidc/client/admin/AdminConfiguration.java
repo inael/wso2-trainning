@@ -19,15 +19,16 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 public class AdminConfiguration implements RequestInterceptor {
-    @Value("${security.oauth2.client.admin.id}")
+    @Value("${security.oauth2.client.client-id}")
     private String clientId;
+
+    @Value("${security.oauth2.client.secret-id}")
+    private String secret;
+
     @Value("${security.oauth2.client.admin.user}")
     private String user;
     @Value("${security.oauth2.client.admin.password}")
     private String password;
-    @Value("${security.oauth2.client.admin.secret}")
-    private String secret;
-
     @Value("${security.oauth2.host}")
     private String host;
 
@@ -63,7 +64,7 @@ public class AdminConfiguration implements RequestInterceptor {
                 map.add("grant_type", "password");
                 map.add("username", user);
                 map.add("password", password);
-                map.add("scope", "delete_patient list_patient_record delete_medical_record add_patient add_medical_records");
+                map.add("scope", "openid  delete_patient list_patient_record delete_medical_record add_patient add_medical_records");
 
 
                 HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(map, headers);

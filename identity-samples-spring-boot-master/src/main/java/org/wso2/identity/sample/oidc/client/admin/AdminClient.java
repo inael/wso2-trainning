@@ -3,16 +3,12 @@ package org.wso2.identity.sample.oidc.client.admin;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import feign.Headers;
-import feign.Param;
-import feign.RequestLine;
-import feign.Response;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.*;
-import org.wso2.identity.sample.oidc.client.patient.PatientConfiguration;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.wso2.identity.sample.oidc.domain.Patient;
-import org.wso2.identity.sample.oidc.openfeign.oauthfeign.OAuthFeignConfig;
-
-import java.util.List;
 
 @FeignClient (name = "adminClient", url = "${healt-first-api.host}", configuration = AdminConfiguration.class)
 public interface AdminClient {

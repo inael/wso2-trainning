@@ -6,7 +6,6 @@ import feign.Response;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.wso2.identity.sample.oidc.openfeign.oauthfeign.OAuthFeignConfig;
 
 
 @FeignClient(name = "patientClient",

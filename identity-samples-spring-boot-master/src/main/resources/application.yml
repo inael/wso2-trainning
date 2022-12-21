@@ -13,7 +13,7 @@ spring:
       client:
         registration:
           wso2:
-            scope: openid
+            scope: openid patient admin doctor
             authorization-grant-type: authorization_code
             client-name: WSO2 Identity Server
             client-id: hBkFcKhxwQRbtHq3XrTMotgpygka
@@ -34,19 +34,14 @@ security:
   oauth2:
     host: https://localhost:9446/oauth2/token
     client:
+      client-id: a07pdaqb3JxxSEKk4uXNbSMR4KYa
+      secret-id: JPEdXOZP_s_Ka31DxbhjqCHZgX8a
       patient:  #ok
-        id: Yiurs1AwxVFYkPafeYw0i7iOkvca
         user: rushmin
         password: password
-        secret: r7IDFYBZyNi9gh4fRB0iLf8fBfca
       doctor: #ok ultron
-        id: zuNgnlrTYgsOKGpURPxdUK1UvUga
         user: ultron
         password: password
-        secret: YpXdQyfsJKNDKMQ4CTPBN5UEoNUa
       admin: #ok
-        id: fXyxaNfTpH_szmPyC6xjiMQ1eVIa
         user: admin
         password: admin
-        secret: ByzCtNMe9qopRryxk2YJVtZVW14a
-
